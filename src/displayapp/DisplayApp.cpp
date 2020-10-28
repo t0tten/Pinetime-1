@@ -40,7 +40,7 @@ DisplayApp::DisplayApp(Drivers::St7789 &lcd, Components::LittleVgl &lvgl, Driver
         notificationManager{notificationManager} {
   msgQueue = xQueueCreate(queueSize, itemSize);
   onClockApp = true;
-  modal.reset(new Screens::Modal(this));
+  modal.reset(new Screens::SimpleAlert(this));
 }
 
 void DisplayApp::Start() {
@@ -115,8 +115,8 @@ void DisplayApp::Refresh() {
         break;
       case Messages::NewNotification: {
         auto notification = notificationManager.Pop();
-        modal->Show(notification.message.data());
-      }
+        modal->Show(notification);
+      } 
         break;
       case Messages::TouchEvent: {
         if (state != States::Running) break;

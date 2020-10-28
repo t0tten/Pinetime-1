@@ -17,6 +17,7 @@
 #include <date/date.h>
 #include "displayapp/screens/Clock.h"
 #include "displayapp/screens/Modal.h"
+#include "displayapp/screens/SimpleAlert.h"
 #include <drivers/Watchdog.h>
 #include "TouchEvents.h"
 #include "Apps.h"
@@ -27,6 +28,10 @@ namespace Pinetime {
     class SystemTask;
   };
   namespace Applications {
+    namespace Screens {
+      class Modal;
+      class SimpleAlert;
+    }
     class DisplayApp {
       public:
         enum class States {Idle, Running};

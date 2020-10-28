@@ -1,6 +1,15 @@
 #include "SimpleAlert.h"
+#include "Modal.h"
+#include "displayapp/screens/Modal.h"
+#include "components/ble/NotificationManager.h"
+#include "displayapp/DisplayApp.h"
 
-using namespace Pinetime::Applications::Screens::Alert;
+#include <bits/unique_ptr.h>
+#include <libs/lvgl/src/lv_core/lv_style.h>
+#include <libs/lvgl/src/lv_core/lv_obj.h>
+#include <libs/lvgl/lvgl.h>
+
+using namespace Pinetime::Applications::Screens;
 extern lv_font_t jetbrains_mono_extrabold_compressed;
 extern lv_font_t jetbrains_mono_bold_20;
 
@@ -22,7 +31,7 @@ void SimpleAlert::OnEvent(lv_obj_t *event_obj, lv_event_t evt) {
   }
 }
 
-void SimpleAlert::Show(struct Pinetime::Controllers::NotificationManager::Notification notification) {
+void SimpleAlert::Show(Pinetime::Controllers::NotificationManager::Notification notification) {
   if(isVisible) return;
   isVisible = true;
   lv_style_copy(&modal_style, &lv_style_plain_color);
@@ -45,7 +54,7 @@ void SimpleAlert::Show(struct Pinetime::Controllers::NotificationManager::Notifi
   lv_mbox_add_btns(mbox, btns2);
   lv_mbox_set_text(mbox, notification.message.data());
   lv_obj_align(mbox, nullptr, LV_ALIGN_CENTER, 0, 0);
-  lv_obj_set_event_cb(mbox, Modal::mbox_event_cb);
+  lv_obj_set_event_cb(mbox, SimpleAlert::mbox_event_cb);
 
   mbox->user_data = this;
 

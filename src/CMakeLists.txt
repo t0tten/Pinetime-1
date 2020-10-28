@@ -332,7 +332,6 @@ list(APPEND SOURCE_FILES
         displayapp/screens/Gauge.cpp
         displayapp/screens/InfiniPaint.cpp
         displayapp/screens/DropDownDemo.cpp
-        displayapp/screens/Modal.cpp
         displayapp/screens/BatteryIcon.cpp
         displayapp/screens/BleIcon.cpp
         displayapp/screens/Brightness.cpp
@@ -379,8 +378,8 @@ list(APPEND SOURCE_FILES
         drivers/TwiMaster.cpp
 
         # src/displayapp/screens/alertscreens/InstantMessageAlert.cpp
-        displayapp/screens/alertscreens/SimpleAlert.cpp
-        displayapp/screens/alertscreens/Modal.cpp
+        displayapp/screens/SimpleAlert.cpp
+        displayapp/screens/Modal.cpp
         )
 
 list(APPEND GRAPHICS_SOURCE_FILES
@@ -414,7 +413,6 @@ set(INCLUDE_FILES
         displayapp/screens/Gauge.h
         displayapp/screens/InfiniPaint.h
         displayapp/screens/DropDownDemo.h
-        displayapp/screens/Modal.h
         displayapp/screens/BatteryIcon.h
         displayapp/screens/BleIcon.cpp
         displayapp/screens/Brightness.h
@@ -463,8 +461,8 @@ set(INCLUDE_FILES
         drivers/TwiMaster.h
         
         
-        displayapp/screens/alertscreens/SimpleAlert.h
-        displayapp/screens/alertscreens/Modal.h
+        displayapp/screens/SimpleAlert.h
+        displayapp/screens/Modal.h
         # displayapp/screens/alertscreens/InstantMessageAlert.h
         )
 

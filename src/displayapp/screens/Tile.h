@@ -3,7 +3,6 @@
 #include <cstdint>
 #include "Screen.h"
 #include <bits/unique_ptr.h>
-#include "Modal.h"
 #include <lvgl/src/lv_core/lv_style.h>
 #include <displayapp/Apps.h>
 
@@ -29,7 +28,8 @@ namespace Pinetime {
           lv_obj_t * btnm1;
           bool running = true;
 
-          std::unique_ptr<Modal> modal;
+          //std::unique_ptr<SimpleAlert> modal;
+          //SimpleAlert* modal;
 
           const char* btnm_map1[8];
           Pinetime::Applications::Apps apps[6];
